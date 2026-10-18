@@ -1,5 +1,7 @@
 # Sleep Left
 
+<img src="assets/banner.png" width="800" alt="Approved Sleep Left crescent icon centered on a midnight background.">
+
 **Time remaining. Right in Clock.**
 
 See the hours, minutes and seconds until your alarms, updated live in Apple's
@@ -10,6 +12,12 @@ previews its configured next occurrence and does not mean it will ring.
 
 Free and MIT licensed. Independently developed by **0chium**, inspired by
 **AlarmTime by P2KDev**.
+
+## In Clock
+
+<p align="center"><a href="assets/screenshots/clock-alarms.jpg"><img src="assets/screenshots/clock-alarms.jpg" width="295" alt="Clock Alarms showing enabled 6:10 AM and 5:20 PM countdowns and a gray disabled 11:45 AM countdown preview."></a></p>
+
+Live countdowns beneath ordinary alarms. The gray, disabled alarm is a preview and stays off.
 
 ## Install and use
 
@@ -91,7 +99,8 @@ claims about AlarmTime's internals or comparative performance.
 
 P2KDev is credited for the inspiration. Sleep Left is our independent
 implementation, not a repackaged AlarmTime binary or an endorsed continuation.
-Original code and included crescent artwork are MIT licensed. Apple frameworks
+No AlarmTime code or artwork is included. Original code and approved crescent
+artwork are MIT licensed. Apple frameworks
 and the device-provided hook library retain their ownership and are not
 redistributed.
 
