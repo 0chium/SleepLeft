@@ -2,39 +2,32 @@
 
 See how long remains until your alarms, right in Apple's Clock app.
 
-Sleep Left appends a live hours/minutes/seconds countdown to each ordinary
-alarm's existing subtitle. Custom labels and native alarm controls stay in place.
+Sleep Left adds a live hours/minutes/seconds countdown to each ordinary alarm's
+existing subtitle. Custom labels and native alarm controls stay in place.
 Enabled and disabled alarms both show a countdown; a disabled alarm's countdown
 previews its configured next occurrence and does not mean it will ring.
 
-The tweak does not change snooze duration, delay alarms, enable disabled alarms,
-or alter alarm scheduling. Sleep/Wake Up is excluded. There is no separate app or
-settings bundle.
-
-Free and MIT licensed. Original implementation by **0chium**. Uses the owner-approved crescent artwork.
+Free and MIT licensed. Independently developed by **0chium**, inspired by
+**AlarmTime by P2KDev**.
 
 ## Install and use
 
-1. Use a compatible conventional rootless jailbreak with a Substrate-compatible
-   tweak loader. The specific owner-tested configurations are listed below.
-2. If you use AlarmTime, block its Clock injection first using the coexistence
-   instructions below.
-3. Add **https://0chium.github.io/** to Sileo, refresh sources, and install
-   **Sleep Left** (`com.ochium.sleepleft`). Review the transaction
-   before confirming. A manual `.deb` download is also available from the
-   [package page](https://0chium.github.io/depictions/sleepleft.html).
-4. Fully close and reopen Clock, then open Alarms. Ordinary alarm subtitles show
-   the countdown automatically; no configuration is needed.
+1. Add **https://0chium.github.io/** to Sileo and refresh sources.
+2. Install **Sleep Left**.
+3. Fully close and reopen Clock, then open Alarms.
 
-The package depends on `mobilesubstrate`. It contains arm64 and arm64e slices and
-uses the rootless `iphoneos-arm64` package layout. Its iOS 17–18 package/runtime
-bounds are technical guards, not a claim that all builds in that range work.
+The countdown appears automatically. There is no separate app, settings pane,
+or extra configuration. AlarmTime and Choicy are not required.
 
-The public package conflicts with and replaces `com.ochium.fivemoreminutes`,
-the private alpha identity, so both cannot be installed together. The internal
-loader name remains **FiveMoreMinutes**; this is also its entry in Choicy.
+Use a compatible conventional rootless jailbreak with a Substrate-compatible
+tweak loader. The package contains arm64 and arm64e slices and depends on
+`mobilesubstrate` and iOS 17–18. Those version bounds do not establish support
+for every build; the specific tested configurations are listed below.
 
-## Owner-tested configurations
+If you already use another alarm-countdown tweak, disable or remove that tweak
+before using Sleep Left so only one modifies the alarm rows.
+
+## Compatibility
 
 | Device | iOS | Build |
 | --- | --- | --- |
@@ -42,87 +35,69 @@ loader name remains **FiveMoreMinutes**; this is also its entry in Choicy.
 | iPhone 11 Pro Max | 18.3.2 | 22D82 |
 
 The owner reports that **0.1.0~alpha1** passed the initial functional checks on
-both configurations with AlarmTime blocked through Choicy: enabled/disabled
-countdowns, custom labels, editing/toggling, scrolling without duplicate or
-mismatched text, and correct catch-up after leaving and returning to Clock.
+both configurations without another alarm-countdown tweak active: enabled and
+disabled countdowns, custom labels, editing and toggling, scrolling without
+duplicate or mismatched text, and correct catch-up after returning to Clock.
 
-These are owner-reported functional passes. They are not comprehensive
-compatibility, calendar, accessibility or performance certification. The final
-**0.1.0** package is a release metadata/presentation build of the same source
-implementation; it has not itself received device testing.
+The final **0.1.0** package retains the same implementation with release branding
+and metadata changes. It has not received additional device testing. These are
+specific owner-reported results, not a blanket compatibility claim.
 
 ## Limitations
 
 - Sleep/Wake Up alarms are not included.
-- No blanket iOS 17/18 support is advertised. iOS 26 is unsupported. Other device,
-  OS and bootstrap combinations, including RootHide conversion, are unverified.
-- Recurrence/DST boundaries, time-zone edge cases and snooze-state edge cases
-  have not been comprehensively tested. Apple supplies occurrence dates; that
-  does not certify every edge case in this integration.
-- VoiceOver custom content, large accessibility text and actual timer inactivity
-  have not been verified by owner testing. No CPU, battery or reliability
-  measurements are claimed.
-- Countdown units are currently English. The original native subtitle retains
-  Apple's own text and formatting. An unfamiliar model/layout contract or a
-  missing future date leaves the native row undecorated.
-
-## AlarmTime coexistence
-
-Do not let AlarmTime and Sleep Left modify Clock's rows at the same time.
-No automatic removal or disablement is performed.
-
-With the existing Choicy controls, open **Settings → Choicy → Applications →
-Clock** and record the current configuration. Enable **Custom Tweak Configuration**.
-In **Deny** mode, mark **AlarmTime ON** to block it and leave **FiveMoreMinutes
-OFF** in that deny list. Preserve other entries. If you already use **Allow**
-mode, keep that mode and set AlarmTime OFF / FiveMoreMinutes ON instead.
-Do not use Disable Tweak Injection for Clock: that blocks both tweaks.
-
-Fully close Clock before reopening it. To return to AlarmTime later, first block
-FiveMoreMinutes, restore AlarmTime's previous selection and the prior Clock
-configuration, then close and reopen Clock. Other existing tweak managers may
-provide equivalent per-app controls; their behavior is not certified here.
+- Snooze duration, alarm scheduling and firing are unchanged.
+- Other device, OS and bootstrap combinations, including RootHide conversion,
+  are unverified. iOS 26 is unsupported.
+- Recurrence/DST boundaries, time-zone changes and snooze-state edge cases have
+  not been comprehensively tested.
+- VoiceOver custom content, large accessibility text and timer inactivity have
+  not been verified by owner testing. No battery, CPU or reliability measurements
+  are claimed.
+- Countdown units are currently English. Apple's original subtitle retains its
+  native text and formatting. An unsupported model/layout or missing future
+  date leaves the native row unchanged.
 
 ## Implementation and what we learned
 
-- **Apple supplies the next occurrence.** The model received from Clock provides
-  `nextFireDateAfterDate:`; we display its result without creating an alarm engine
-  or changing the model's scheduling state.
-- **Native subtitle and controls.** We capture Apple's formatted subtitle and
-  append the countdown. A narrow subtitle-width adjustment gives the text room
-  while retaining native fonts, enabled/disabled colors, controls and row sizing.
-- **One visible-list timer.** A single timer updates the visible, active ordinary
-  alarm list once per second. Controller/scene inactivity stops it. A tick
-  subtracts the current wall time from Apple's occurrence date, so delayed ticks
-  catch up instead of accumulating drift.
-- **Original text is retained.** Each native refresh replaces the base subtitle
-  and model. Reuse clears the association. Each countdown is regenerated from
-  that base text, which prevents repeatedly appending another suffix.
-- **VoiceOver custom content is a choice.** Clock constructs its spoken cell
-  label separately. We offer time remaining as on-demand custom content without
-  replacing its time/on-off speech or actions. This behavior remains unverified
-  by owner testing.
+- **Apple supplies the next occurrence.** We read the date from Clock's alarm
+  model rather than implementing an alarm scheduler or changing its state.
+- **Native subtitle and controls.** We append to Apple's formatted subtitle,
+  preserving labels, fonts, enabled/disabled colors and controls. A narrow width
+  adjustment provides space for the countdown using native row sizing.
+- **One visible-list timer.** One timer updates visible ordinary alarm rows once
+  per second while the list is active. It stops when the controller or scene is
+  inactive. Each update subtracts current wall time from Apple's occurrence date
+  so delayed ticks catch up.
+- **No accumulating suffixes.** Native refreshes replace the stored base text
+  and alarm model. Each update regenerates the countdown from that original text;
+  cell reuse clears the association.
+- **On-demand VoiceOver content.** The countdown is offered as custom content
+  while preserving Apple's time/on-off speech and actions. This remains
+  unverified by owner testing.
 
-Native refresh/reuse and controller lifecycle callbacks handle ordinary UI
-changes. Foreground and relevant clock/time-zone notifications discard cached
-visible dates. These decisions describe this implementation; they do not imply
-knowledge of AlarmTime's internals or superiority over it.
+Foregrounding, native refreshes and relevant time/time-zone notifications
+invalidate cached visible dates. These are our implementation choices, not
+claims about AlarmTime's internals or comparative performance.
 
 ## Source, support and credits
 
 - [Source](https://github.com/0chium/SleepLeft)
 - [Support and issue reports](https://github.com/0chium/SleepLeft/issues)
+- [Package page](https://0chium.github.io/depictions/sleepleft.html)
 - [Changelog](CHANGELOG.md) · [Build instructions](BUILDING.md) · [MIT license](LICENSE)
-
-For an issue, include the package version, device model, iOS/build, bootstrap,
-reproduction steps, and whether other Clock tweaks were blocked. Remove passwords,
-unique device identifiers and other private information from public attachments.
-Screenshots are optional.
 
 **Inspired by AlarmTime by P2KDev. Independently implemented.**
 
-Sleep Left is 0chium's independent implementation, not an AlarmTime fork
-or an endorsed continuation. P2KDev is credited for the inspiration, not for code
-contribution or endorsement. No AlarmTime code or artwork is included. Original
-code and the included artwork are distributed under the MIT license; Apple frameworks and the device-provided hook
-library retain their respective ownership and are not redistributed here.
+P2KDev is credited for the inspiration. Sleep Left is our independent
+implementation, not a repackaged AlarmTime binary or an endorsed continuation.
+Original code and included crescent artwork are MIT licensed. Apple frameworks
+and the device-provided hook library retain their ownership and are not
+redistributed.
+
+For issue reports, include the Sleep Left version, device model, iOS/build,
+jailbreak and a description of the problem. Mention other Clock tweaks if
+relevant. Screenshots are optional; remove private information from public
+attachments.
+
+Package identifier: `com.ochium.sleepleft`.

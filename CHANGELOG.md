@@ -12,7 +12,7 @@
 
 The implementation source is unchanged from 0.1.0~alpha1. The owner reports that
 alpha passed the initial functional checks on iPhone 14 Pro / iOS 17.0 / 21A329
-and iPhone 11 Pro Max / iOS 18.3.2 / 22D82, with AlarmTime blocked through Choicy.
+and iPhone 11 Pro Max / iOS 18.3.2 / 22D82, without another alarm-countdown tweak active.
 The final 0.1.0 release package has not itself received device testing.
 
 Sleep/Wake Up is excluded. Calendar edge cases, VoiceOver, large text, performance
