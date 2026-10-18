@@ -1,0 +1,15 @@
+Package: com.ochium.sleepleft
+Name: Sleep Left
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Description: Live time remaining in Apple's ordinary Clock alarm rows.
+Maintainer: 0chium
+Author: 0chium
+Section: Tweaks
+Depends: mobilesubstrate, firmware (>= 17.0), firmware (<< 19.0)
+Conflicts: com.ochium.fivemoreminutes
+Replaces: com.ochium.fivemoreminutes
+Homepage: https://github.com/0chium/SleepLeft
+Depiction: https://0chium.github.io/depictions/sleepleft.html
+SileoDepiction: https://0chium.github.io/depictions/sleepleft.json
+Icon: https://0chium.github.io/assets/sleepleft.png
