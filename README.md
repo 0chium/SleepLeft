@@ -1,9 +1,10 @@
 # Sleep Left
 
-See how long remains until your alarms, right in Apple's Clock app.
+**Time remaining. Right in Clock.**
 
-Sleep Left adds a live hours/minutes/seconds countdown to each ordinary alarm's
-existing subtitle. Custom labels and native alarm controls stay in place.
+See the hours, minutes and seconds until your alarms, updated live in Apple's
+Clock app. Sleep Left adds the countdown beneath each ordinary alarm, alongside
+your existing label.
 Enabled and disabled alarms both show a countdown; a disabled alarm's countdown
 previews its configured next occurrence and does not mean it will ring.
 
@@ -16,8 +17,7 @@ Free and MIT licensed. Independently developed by **0chium**, inspired by
 2. Install **Sleep Left**.
 3. Fully close and reopen Clock, then open Alarms.
 
-The countdown appears automatically. There is no separate app, settings pane,
-or extra configuration. AlarmTime and Choicy are not required.
+The countdown appears automatically. No Settings pane or extra configuration.
 
 Use a compatible conventional rootless jailbreak with a Substrate-compatible
 tweak loader. The package contains arm64 and arm64e slices and depends on
