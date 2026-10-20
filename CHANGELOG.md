@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.1
+
+- Allows installation and initialization on iOS 26.0.1 for compatibility testing.
+- Existing Clock interface and layout checks remain in place. Countdown behavior,
+  artwork, package identity and credits are unchanged.
+- iOS 26.0.1 runtime compatibility is not yet verified. Earlier device results
+  remain limited to the configurations recorded below.
+
 ## 0.1.0 — first public release
 
 - Live hours/minutes/seconds in ordinary Clock alarm subtitles, including

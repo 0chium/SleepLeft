@@ -29,7 +29,9 @@ The countdown appears automatically. No Settings pane or extra configuration.
 
 Use a compatible conventional rootless jailbreak with a Substrate-compatible
 tweak loader. The package contains arm64 and arm64e slices and depends on
-`mobilesubstrate` and iOS 17–18. Those version bounds do not establish support
+`mobilesubstrate`. The package admits iOS 17–18 and exactly iOS 26.0.1.
+Version 0.1.1 enables iOS 26.0.1 installation, but runtime compatibility remains
+unverified until owner results arrive. Those version bounds do not establish support
 for every build; the specific tested configurations are listed below.
 
 If you already use another alarm-countdown tweak, disable or remove that tweak
@@ -47,16 +49,19 @@ both configurations without another alarm-countdown tweak active: enabled and
 disabled countdowns, custom labels, editing and toggling, scrolling without
 duplicate or mismatched text, and correct catch-up after returning to Clock.
 
-The final **0.1.0** package retains the same implementation with release branding
-and metadata changes. It has not received additional device testing. These are
-specific owner-reported results, not a blanket compatibility claim.
+The public **0.1.1** package retains the countdown implementation and adds exactly
+iOS 26.0.1 to the admission guards. It has not received additional device testing.
+The results above apply to the earlier alpha; iOS 26.0.1 runtime compatibility
+remains unverified. These are specific owner-reported results, not a blanket
+compatibility claim.
 
 ## Limitations
 
 - Sleep/Wake Up alarms are not included.
 - Snooze duration, alarm scheduling and firing are unchanged.
 - Other device, OS and bootstrap combinations, including RootHide conversion,
-  are unverified. iOS 26 is unsupported.
+  are unverified. Exactly iOS 26.0.1 is admitted for owner testing; other iOS 26
+  versions are not admitted.
 - Recurrence/DST boundaries, time-zone changes and snooze-state edge cases have
   not been comprehensively tested.
 - VoiceOver custom content, large accessibility text and timer inactivity have

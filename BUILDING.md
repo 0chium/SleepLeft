@@ -14,8 +14,9 @@ Established build inputs:
   evidence; no signing identity or provisioning profile is needed.
 
 The binary deployment baseline is 15.0 to match the established SDK's Objective-C
-runtime stubs. The package and runtime guards restrict use to iOS 17–18; this is
-not an iOS 15 support claim or a claim of support for every iOS 17/18 build.
+runtime stubs. The package and runtime guards admit iOS 17–18 and exactly
+iOS 26.0.1. This is not an iOS 15 support claim or blanket compatibility;
+iOS 26.0.1 runtime behavior remains unverified.
 
 With those inputs prepared and `THEOS` set:
 
