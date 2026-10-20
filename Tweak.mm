@@ -244,8 +244,8 @@ static void Disappear(UITableViewController *controller, SEL cmd, BOOL animated)
 __attribute__((constructor)) static void Initialize(void) {
     if (![NSBundle.mainBundle.bundleIdentifier isEqualToString:@"com.apple.mobiletimer"]) return;
     NSOperatingSystemVersion os = NSProcessInfo.processInfo.operatingSystemVersion;
-    BOOL admits26 = os.majorVersion == 26 && os.minorVersion == 0 && os.patchVersion == 1;
-    if ((os.majorVersion < 17 || os.majorVersion > 18) && !admits26) return;
+    // Allow community testing; retain the method/type and layout checks below.
+    if (os.majorVersion < 17 || os.majorVersion > 26) return;
     Class cell = NSClassFromString(@"MTAAlarmTableViewCell");
     Class controller = NSClassFromString(@"MTAAlarmTableViewController");
     if (!cell || !controller || ![cell isSubclassOfClass:UITableViewCell.class]

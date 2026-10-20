@@ -14,10 +14,14 @@ Established build inputs:
   evidence; no signing identity or provisioning profile is needed.
 
 The binary deployment baseline is 15.0 to match the established SDK's Objective-C
-runtime stubs. The package and runtime guards admit iOS 17–18 and exactly
-iOS 26.0.1. This is not an iOS 15 support claim or blanket compatibility;
-the owner reports 0.1.1 working on iPhone SE (2nd generation), iOS 26.0.1
-(23A355). See README for the limits of that result.
+runtime stubs. Version 0.1.2 admits all minor and patch versions within iOS/iPadOS 17–26.
+This is not an iOS 15 support claim or proof of every combination working.
+The owner reports the earlier 0.1.1 working on iPhone SE (2nd generation),
+iOS 26.0.1 (23A355). See README for tested configurations and limitations.
+
+The 0.1.2 build uses the established private workflow at revision
+`f7066b4b0a6598a2bdfc22c774c3fd26c380a3b9`, preserving the pinned
+inputs and signature verification below.
 
 With those inputs prepared and `THEOS` set:
 

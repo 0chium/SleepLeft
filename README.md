@@ -29,10 +29,11 @@ The countdown appears automatically. No Settings pane or extra configuration.
 
 Use a compatible conventional rootless jailbreak with a Substrate-compatible
 tweak loader. The package contains arm64 and arm64e slices and depends on
-`mobilesubstrate`. The package admits iOS 17–18 and exactly iOS 26.0.1.
-Version 0.1.1 is owner-tested on iPhone SE (2nd generation), iOS 26.0.1.
-Those version bounds do not establish support for every build; the specific
-tested configurations are listed below.
+`mobilesubstrate`. Version 0.1.2 allows every minor and patch version within
+iOS/iPadOS 17–26. There is no Dopamine-only requirement. The native method/type
+and layout checks remain in place. Rootful and RootHide conversion is not
+established. Tested configurations are listed below; other combinations may
+try it and report results.
 
 If you already use another alarm-countdown tweak, disable or remove that tweak
 before using Sleep Left so only one modifies the alarm rows.
@@ -54,15 +55,17 @@ The owner reports the public **0.1.1** package working on iPhone SE
 (2nd generation), iOS 26.0.1 (23A355). It retains the countdown implementation
 and adds exactly iOS 26.0.1 to the admission guards. This report does not establish
 comprehensive testing of calendar edge cases or every device and jailbreak.
-The earlier iOS 17.0 and 18.3.2 results apply to the alpha.
+The earlier iOS 17.0 and 18.3.2 results apply to the alpha. Version 0.1.2 changes
+only OS admission and package metadata; this newly compiled build is not yet
+device-tested.
 
 ## Limitations
 
 - Sleep/Wake Up alarms are not included.
 - Snooze duration, alarm scheduling and firing are unchanged.
 - Other device, OS and bootstrap combinations, including RootHide conversion,
-  are unverified. Exactly iOS 26.0.1 is admitted; other iOS 26 versions are
-  not admitted.
+  remain unverified. Every version within iOS/iPadOS 17–26 is allowed to try;
+  the range is not a claim that every combination has been tested.
 - Recurrence/DST boundaries, time-zone changes and snooze-state edge cases have
   not been comprehensively tested.
 - VoiceOver custom content, large accessibility text and timer inactivity have

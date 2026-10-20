@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.2
+
+- Allows installation and initialization on all minor and patch versions within
+  iOS/iPadOS 17–26, with no Dopamine-only requirement.
+- Retains the native method/type and layout checks. Countdown behavior, timer
+  lifecycle, artwork, internal names and original inspiration credit are unchanged.
+- Uses the existing rootless package and loader requirements. Other bootstrap
+  layouts are not established by this version change.
+- The new build is not device-tested. Earlier owner results remain listed as
+  earlier results, with other configurations open for community testing.
+
 ## 0.1.1
 
 - Allows installation and initialization on iOS 26.0.1 for compatibility testing.
