@@ -16,7 +16,8 @@ Established build inputs:
 The binary deployment baseline is 15.0 to match the established SDK's Objective-C
 runtime stubs. The package and runtime guards admit iOS 17–18 and exactly
 iOS 26.0.1. This is not an iOS 15 support claim or blanket compatibility;
-iOS 26.0.1 runtime behavior remains unverified.
+the owner reports 0.1.1 working on iPhone SE (2nd generation), iOS 26.0.1
+(23A355). See README for the limits of that result.
 
 With those inputs prepared and `THEOS` set:
 
