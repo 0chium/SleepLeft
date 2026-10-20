@@ -2,7 +2,7 @@
 
 <img src="assets/banner.png" width="800" alt="Approved Sleep Left crescent icon centered on a midnight background.">
 
-**Time remaining. Right in Clock.**
+**See your sleep time remaining, right in Clock.**
 
 See the hours, minutes and seconds until your alarms, updated live in Apple's
 Clock app. Sleep Left adds the countdown beneath each ordinary alarm, alongside
@@ -30,9 +30,9 @@ The countdown appears automatically. No Settings pane or extra configuration.
 Use a compatible conventional rootless jailbreak with a Substrate-compatible
 tweak loader. The package contains arm64 and arm64e slices and depends on
 `mobilesubstrate`. The package admits iOS 17–18 and exactly iOS 26.0.1.
-Version 0.1.1 enables iOS 26.0.1 installation, but runtime compatibility remains
-unverified until owner results arrive. Those version bounds do not establish support
-for every build; the specific tested configurations are listed below.
+Version 0.1.1 is owner-tested on iPhone SE (2nd generation), iOS 26.0.1.
+Those version bounds do not establish support for every build; the specific
+tested configurations are listed below.
 
 If you already use another alarm-countdown tweak, disable or remove that tweak
 before using Sleep Left so only one modifies the alarm rows.
@@ -43,25 +43,26 @@ before using Sleep Left so only one modifies the alarm rows.
 | --- | --- | --- |
 | iPhone 14 Pro | 17.0 | 21A329 |
 | iPhone 11 Pro Max | 18.3.2 | 22D82 |
+| iPhone SE (2nd generation) | 26.0.1 | 23A355 |
 
 The owner reports that **0.1.0~alpha1** passed the initial functional checks on
-both configurations without another alarm-countdown tweak active: enabled and
+the iOS 17.0 and 18.3.2 configurations without another alarm-countdown tweak active: enabled and
 disabled countdowns, custom labels, editing and toggling, scrolling without
 duplicate or mismatched text, and correct catch-up after returning to Clock.
 
-The public **0.1.1** package retains the countdown implementation and adds exactly
-iOS 26.0.1 to the admission guards. It has not received additional device testing.
-The results above apply to the earlier alpha; iOS 26.0.1 runtime compatibility
-remains unverified. These are specific owner-reported results, not a blanket
-compatibility claim.
+The owner reports the public **0.1.1** package working on iPhone SE
+(2nd generation), iOS 26.0.1 (23A355). It retains the countdown implementation
+and adds exactly iOS 26.0.1 to the admission guards. This report does not establish
+comprehensive testing of calendar edge cases or every device and jailbreak.
+The earlier iOS 17.0 and 18.3.2 results apply to the alpha.
 
 ## Limitations
 
 - Sleep/Wake Up alarms are not included.
 - Snooze duration, alarm scheduling and firing are unchanged.
 - Other device, OS and bootstrap combinations, including RootHide conversion,
-  are unverified. Exactly iOS 26.0.1 is admitted for owner testing; other iOS 26
-  versions are not admitted.
+  are unverified. Exactly iOS 26.0.1 is admitted; other iOS 26 versions are
+  not admitted.
 - Recurrence/DST boundaries, time-zone changes and snooze-state edge cases have
   not been comprehensively tested.
 - VoiceOver custom content, large accessibility text and timer inactivity have

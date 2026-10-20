@@ -5,8 +5,9 @@
 - Allows installation and initialization on iOS 26.0.1 for compatibility testing.
 - Existing Clock interface and layout checks remain in place. Countdown behavior,
   artwork, package identity and credits are unchanged.
-- iOS 26.0.1 runtime compatibility is not yet verified. Earlier device results
-  remain limited to the configurations recorded below.
+- Owner subsequently reports 0.1.1 working on iPhone SE (2nd generation),
+  iOS 26.0.1 (23A355). Earlier iOS 17.0 and 18.3.2 results used the alpha.
+  Other configurations remain unverified.
 
 ## 0.1.0 — first public release
 
