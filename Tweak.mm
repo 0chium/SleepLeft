@@ -245,7 +245,7 @@ __attribute__((constructor)) static void Initialize(void) {
     if (![NSBundle.mainBundle.bundleIdentifier isEqualToString:@"com.apple.mobiletimer"]) return;
     NSOperatingSystemVersion os = NSProcessInfo.processInfo.operatingSystemVersion;
     // Allow community testing; retain the method/type and layout checks below.
-    if (os.majorVersion < 17 || os.majorVersion > 26) return;
+    if (os.majorVersion < 16 || os.majorVersion > 26) return;
     Class cell = NSClassFromString(@"MTAAlarmTableViewCell");
     Class controller = NSClassFromString(@"MTAAlarmTableViewController");
     if (!cell || !controller || ![cell isSubclassOfClass:UITableViewCell.class]
