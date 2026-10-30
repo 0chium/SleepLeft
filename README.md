@@ -29,8 +29,8 @@ The countdown appears automatically. No Settings pane or extra configuration.
 
 Use a compatible conventional rootless jailbreak with a Substrate-compatible
 tweak loader. The package contains arm64 and arm64e slices and depends on
-`mobilesubstrate`. Version 0.1.2 allows every minor and patch version within
-iOS/iPadOS 17–26. There is no Dopamine-only requirement. The native method/type
+`mobilesubstrate`. Version 0.1.3 allows every minor and patch version within
+iOS/iPadOS 16–26. There is no Dopamine-only requirement. The native method/type
 and layout checks remain in place. Rootful and RootHide conversion is not
 established. Tested configurations are listed below; other combinations may
 try it and report results.
@@ -42,6 +42,7 @@ before using Sleep Left so only one modifies the alarm rows.
 
 | Device | iOS | Build |
 | --- | --- | --- |
+| iPhone 14 Pro | 16.2 | 20C65 |
 | iPhone 14 Pro | 17.0 | 21A329 |
 | iPhone 11 Pro Max | 18.3.2 | 22D82 |
 | iPhone SE (2nd generation) | 26.0.1 | 23A355 |
@@ -55,16 +56,19 @@ The owner reports the public **0.1.1** package working on iPhone SE
 (2nd generation), iOS 26.0.1 (23A355). It retains the countdown implementation
 and adds exactly iOS 26.0.1 to the admission guards. This report does not establish
 comprehensive testing of calendar edge cases or every device and jailbreak.
-The earlier iOS 17.0 and 18.3.2 results apply to the alpha. Version 0.1.2 changes
-only OS admission and package metadata; this newly compiled build is not yet
-device-tested.
+The earlier iOS 17.0 and 18.3.2 results apply to the alpha. Version 0.1.2 changed
+only OS admission and package metadata; it was not separately device-tested.
+The owner confirms **Sleep Left 0.1.3 works on iPhone 14 Pro running iOS 16.2**.
+Version 0.1.3 extends installation and runtime admission to iOS 16 without
+changing the countdown implementation. Other versions and jailbreak environments
+remain unverified.
 
 ## Limitations
 
 - Sleep/Wake Up alarms are not included.
 - Snooze duration, alarm scheduling and firing are unchanged.
 - Other device, OS and bootstrap combinations, including RootHide conversion,
-  remain unverified. Every version within iOS/iPadOS 17–26 is allowed to try;
+  remain unverified. Every version within iOS/iPadOS 16–26 is allowed to try;
   the range is not a claim that every combination has been tested.
 - Recurrence/DST boundaries, time-zone changes and snooze-state edge cases have
   not been comprehensively tested.
