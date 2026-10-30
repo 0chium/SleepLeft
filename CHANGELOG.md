@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.3
+
+- Allows installation and runtime initialization on iOS/iPadOS 16–26.
+- Preserves the existing Clock hooks, native method/type/layout guards,
+  countdown behavior, artwork, credits, and conventional rootless package scheme.
+- Owner confirms that 0.1.3 works on iPhone 14 Pro running iOS 16.2.
+  This is a specific device report, not comprehensive validation of every
+  iOS 16 version, jailbreak, or calendar edge case.
+
 ## 0.1.2
 
 - Allows installation and initialization on all minor and patch versions within
