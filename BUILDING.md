@@ -14,7 +14,8 @@ Established build inputs:
   evidence; no signing identity or provisioning profile is needed.
 
 The binary deployment baseline is 15.0 to match the established SDK's Objective-C
-runtime stubs. Version 0.1.2 admits all minor and patch versions within iOS/iPadOS 17–26.
+runtime stubs. Version 0.1.3 admits all minor and patch versions within iOS/iPadOS 16–26.
+The owner confirms that 0.1.3 works on an iPhone 14 Pro running iOS 16.2.
 This is not an iOS 15 support claim or proof of every combination working.
 The owner reports the earlier 0.1.1 working on iPhone SE (2nd generation),
 iOS 26.0.1 (23A355). See README for tested configurations and limitations.
